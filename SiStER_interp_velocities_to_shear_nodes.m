@@ -12,8 +12,7 @@
 % -------------------------------------------------------------------------
 vxc=zeros(Ny,Nx);
 % internal nodes
-vxc(2:Ny-1,:)=vx(1:Ny-2,:).*(((1-dy(1:Ny-2)./(dy(1:Ny-2)+dy(2:Ny-1))))'*ones(1,Nx))+....
-              vx(2:Ny-1,:).*(((1-dy(2:Ny-1)./(dy(1:Ny-2)+dy(2:Ny-1))))'*ones(1,Nx));
+vxc(2:Ny-1,:)=vx(1:Ny-2,:).*(((1-dy(1:Ny-2)./(dy(1:Ny-2)+dy(2:Ny-1))))'*ones(1,Nx)) + vx(2:Ny-1,:).*(((1-dy(2:Ny-1)./(dy(1:Ny-2)+dy(2:Ny-1))))'*ones(1,Nx));
 
 % Top 
 if (BC.top(1)==1);  %free slip
@@ -49,8 +48,7 @@ end;
 % -------------------------------------------------------------------------
 vyc=zeros(Ny,Nx);
 % internal values
-vyc(:,2:Nx-1)=vy(:,1:Nx-2).*(ones(Ny,1)*(1-dx(1:Nx-2)./(dx(1:Nx-2)+dx(2:Nx-1))))+....
-              vy(:,2:Nx-1).*(ones(Ny,1)*(1-dx(2:Nx-1)./(dx(1:Nx-2)+dx(2:Nx-1))));
+vyc(:,2:Nx-1)=vy(:,1:Nx-2).*(ones(Ny,1)*(1-dx(1:Nx-2)./(dx(1:Nx-2)+dx(2:Nx-1)))) + vy(:,2:Nx-1).*(ones(Ny,1)*(1-dx(2:Nx-1)./(dx(1:Nx-2)+dx(2:Nx-1))));
 
 %Left
 if (BC.left(1)==1); %free slip
